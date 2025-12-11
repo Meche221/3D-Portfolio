@@ -26,3 +26,20 @@ themeToggle.addEventListener("click", () => {
     ease: "power2.inOut",
   })
 })
+
+
+// Mobile Menu Managment
+const menuToggle = document.getElementById("menuToggle");
+const mobileMenu = document.getElementById("mobileMenu");
+
+menuToggle.addEventListener("click", () => {
+  menuToggle.classList.toggle("active")
+  mobileMenu.classList.toggle("active")
+
+  // Prevent body scroll when menu is open
+  if(mobileMenu.classList.contains("active")){
+    body.style.overflow = "hidden"
+  } else{
+    body.style.overflow = ""
+  }
+})
