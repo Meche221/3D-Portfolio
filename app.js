@@ -43,3 +43,70 @@ menuToggle.addEventListener("click", () => {
     body.style.overflow = ""
   }
 })
+
+
+// Loading Animation
+function initLoader(){
+  const loader = document.querySelector(".loader");
+  const loaderText = document.querySelector(".loader-text");
+  const loaderProgress = document.querySelector(".loader-progress");
+
+  //animation loader text
+  gsap.to(loaderText, {
+    opacity: 1,
+    duration: 0.7,
+    ease: "power2.out",
+  })
+
+  // animation progress bar
+  gsap.to(loaderProgress, {
+    width: "100%",
+    duration: 2, 
+    ease: "power2.out",
+    onComplete: () => {
+      gsap.to(loader, {
+        opacity: 0, 
+        duration: 0.7,
+        onComplete: () => {
+          loader.style.display = "none"
+          initAnimation()
+        }
+      })
+    }
+  })
+}
+
+// initialize loader on page load
+window.addEventListener("load", initLoader)
+
+// Custom cursor (only in desktop)
+if(window.innerWidth > 768){
+  const cursor = document.querySelector(".cursor");
+  console.log(cursor);
+  
+  const cursorFollower = document.querySelector(".cursor-follower");
+
+  document.addEventListener("mousemove", (e) => {  
+    gsap.to(cursor, {
+      x: e.clientX - 10,
+      y: e.clientY - 10,
+      duration: 0.1,
+    })
+
+    gsap.to(cursorFollower, {
+      x: e.clientX - 20, 
+      y: e.clientY - 20,
+      duration: 0.2,
+    })
+  })
+}
+
+// initializing all animations
+function initAnimation(){
+  // Navigation animation
+  gsap.to("nav", {
+    y: 0, 
+    duration: 1,
+    ease: "power3.out",
+  })
+}
