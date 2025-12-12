@@ -378,11 +378,55 @@ nav{
   border-radius: 50px;
   font-weight: 600;
   transition: transform 0.3s ease;
-  filter: blur(10px);
-  transform: translateY(5rem);
   opacity: 0; 
+  filter: blur(10px);
+  transform: translateY(0);
 }
 
 .cta-button:hover{
-  transform: translateY(-4px);
+  transform: translateY(-5px);
+}
+
+.hero-3d-model{
+  position: absolute;
+  width: 130%;
+  z-index: -1;
+}
+
+@media(max-width: 1080px){
+  .hero-img{
+    height: 38%;
+  }
+}
+
+@media(max-width: 768px){
+  .nav-links{
+    display: none;
+  }
+
+  .menu-toggle{
+    display: flex;
+  }
+
+  .hero-content{
+    padding: 0 1rem;
+  }
+
+  .nav-container{
+    padding: 0 1rem;
+  }
+
+  .cursor, .cursor-follower{
+    display: none;
+  }
+
+  .hero{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .hero-img{
+    height: 30%;
+    margin: 0;
+  }
 }

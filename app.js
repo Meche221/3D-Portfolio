@@ -82,7 +82,6 @@ window.addEventListener("load", initLoader)
 // Custom cursor (only in desktop)
 if(window.innerWidth > 768){
   const cursor = document.querySelector(".cursor");
-  console.log(cursor);
   
   const cursorFollower = document.querySelector(".cursor-follower");
 
@@ -109,6 +108,9 @@ function initAnimation(){
     duration: 1,
     ease: "power3.out",
   })
+  
+  gsap.set(".cta-button", { y: 80 })  // Start 80px lower
+
 
   // Hero Animation
   const heroTl = gsap.timeline()
@@ -140,6 +142,16 @@ function initAnimation(){
         y: 0,
         duration: 0.8,
         ease: "power3.out",
+        clearProps: "transform",
       }, "-=0.3")
 
 }
+
+const btn = document.querySelector(".cta-button");
+
+btn.addEventListener("mouseenter", () => {
+  gsap.to(btn, { y: -8, duration: 0.1 });
+});
+btn.addEventListener("mouseleave", () => {
+  gsap.to(btn, { y: 0, duration: 0.1 });
+});
