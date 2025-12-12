@@ -109,4 +109,37 @@ function initAnimation(){
     duration: 1,
     ease: "power3.out",
   })
+
+  // Hero Animation
+  const heroTl = gsap.timeline()
+  heroTl
+      .to(".hero-title", {
+        opacity: 1,
+        filter: 'blur(0px)',
+        y: 0,
+        duration: 1.2,
+        ease: 'power3.out'
+      })
+      .to(".hero-subtitle", {
+        opacity: 1,
+        filter: "blur(0px)",
+        y: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      }, "-=0.5")
+      .to(".hero-description",{
+        opacity: 1,
+        filter: "blur(0px)",
+        y: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      }, "-=0.3")
+      .to(".cta-button", {
+        opacity: 1,
+        filter: "blur(0px)",
+        y: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      }, "-=0.3")
+
 }
